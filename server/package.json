@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Mongodb server using Express for routing. POST requests handled by body-parser, cors, and mongoose.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CJBarra/mern-practice.git"
+  },
+  "author": "Christian J Barratt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CJBarra/mern-practice/issues"
+  },
+  "homepage": "https://github.com/CJBarra/mern-practice#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
+  }
+}
