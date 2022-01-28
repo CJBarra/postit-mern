@@ -8,12 +8,14 @@ import postRoutes from "./routes/posts.js";
 // initialize app
 const app = express();
 
-app.use("/posts", postRoutes);
 // setup bodyParser to perform proper requests
 // images to be included in application, set limitations / encode
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+//------------------- Routes ------------------- //
+app.use("/posts", postRoutes);
 
 // Setup mongodb database , will be hosted using their cloud/atlas version.
 // https://www.mongodb.com/cloud/atlas
