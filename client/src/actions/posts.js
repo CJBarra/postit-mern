@@ -13,8 +13,7 @@ export const getPosts = () => async (dispatch) => {
   }
 
   // specify type of action and payload data.
-  const action = { type: "FETCH_ALL", payload: [] };
-  dispatch(action);
+
 };
 
 export const createPost = (post) => async (dispatch) => {
