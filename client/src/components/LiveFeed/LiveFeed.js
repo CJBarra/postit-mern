@@ -9,18 +9,11 @@ const LiveFeed = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
-  console.log(posts.length);
-  return (
+  // console.log(posts.length);
+  return ( 
     // show circular progress if the length of posts is 0.
-    posts.length === 0 ? (
-      <CircularProgress />
-    ) : (
-      <Grid
-        className={classes.mainContainer}
-        alignItems="stretch"
-        spacing={3}
-        container
-      >
+    !posts.length ? (<CircularProgress />) : (
+      <Grid className={classes.mainContainer} alignItems="stretch" spacing={2} container>
         {posts.map((post) => (
           <Grid key={post._id} item xs={12} sm={6} md={6}>
             <Post post={post} setCurrentId={setCurrentId} />
