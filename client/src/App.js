@@ -3,10 +3,11 @@ import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import { getPosts } from "./actions/posts";
-import Posts from "./components/Feed/Feed.js";
+
 import Form from "./components/Form/Form.js";
 import painting from "./images/3600_8_05.png";
 import useStyles from "./styles.js";
+import LiveFeed from "./components/LiveFeed/LiveFeed";
 
 const App = () => {
   const classes = useStyles();
@@ -43,7 +44,7 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <LiveFeed />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Form />
