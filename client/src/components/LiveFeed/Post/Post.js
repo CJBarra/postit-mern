@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const Post = ( {post} ) => {
+const Post = ( {post, setCurrentId} ) => {
   const classes = useStyles();
   // console.log(post);
   return (
@@ -20,7 +20,8 @@ const Post = ( {post} ) => {
 
       {/* Author and Time Created */}
       <div className={classes.overlay}>
-        <Typography variant="h6">{post.creator}</Typography>
+        <Typography variant="h6">{post.author}</Typography>
+
         <Typography variant="body2">
           {moment(post.createdAt).fromNow()}
         </Typography>
@@ -28,7 +29,7 @@ const Post = ( {post} ) => {
 
       {/* Read More... content */}
       <div className={classes.overlay2}>
-        <Button style={{ color: "#fff" }} size="small" onClick={() => {}}>
+        <Button style={{ color: "#fff" }} size="small" onClick={() => setCurrentId(post._id)}>
           <MoreHoriz fontSize="default" />
         </Button>
       </div>
@@ -40,10 +41,11 @@ const Post = ( {post} ) => {
         </Typography>
       </div>
 
-      {/* Content: title, messages */}
+      {/* Content: messages */}
       <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
+
       <CardContent>
-        <Typography variant="h5" gutterBottom>{post.message}</Typography> 
+        <Typography className={classes.message} variant="subtitle1" gutterBottom>{post.message}</Typography> 
       </CardContent>
 
       {/* Card Actions: Like, Delete */}
@@ -55,6 +57,7 @@ const Post = ( {post} ) => {
           <Delete fontSize="small" />Delete
         </Button>
       </CardActions>
+
     </Card>
   );
 };

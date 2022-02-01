@@ -13,13 +13,23 @@ export const getPosts = () => async (dispatch) => {
   }
 
   // specify type of action and payload data.
-
 };
 
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
     dispatch({ type: "CREATE", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const updatePost = (id, post) => async (dispatch) => {
+  // request api for updatePost, passing currentId and postData.
+  // should return updated memory of post
+  try {
+    const { data } = await api.updatePost(id, post);
+    dispatch({ type: "UPDATE", payload: data });
   } catch (error) {
     console.log(error.message);
   }

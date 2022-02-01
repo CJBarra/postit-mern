@@ -23,19 +23,20 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-  title: { padding: "0 16px" },
+  title: { padding: "0 16px", textTransform: "capitalize" },
+  message: { padding: "0 16px"},
   details: {
     display: "flex",
     justifyContent: "space-between",
     margin: "20px",
   },
-  overlay2: {
+  overlay: {
     position: "absolute",
     top: "20px",
-    right: "20px",
+    left: "20px",
     color: "#fff",
   },
-  overlay: {
+  overlay2: {
     position: "absolute",
     top: "20px",
     right: "20px",

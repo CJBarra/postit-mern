@@ -13,5 +13,5 @@ export default makeStyles((theme) => ({
   },
   centerText:{
     textAlign: "center",
-  }
+  },
 }));

@@ -10,6 +10,11 @@ export default (state = [], action) => {
       // spread all posts in state, then add new post to array.
       return [...state, action.payload];
 
+    case "UPDATE":
+      // check if post._id matches action.payload._id, if true, return newly updated action.payload. Otherwise, return original post.
+      // Update process: maps over origin 'post' array(state), updating the data, then returning the newly updated array.
+      return state.map((post) => post._id === action.payload._id ? action.payload : post);
+
     default:
       return state;
   }

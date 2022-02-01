@@ -7,5 +7,6 @@ const router = express.Router();
 // http://localhost:8080/posts
 router.get("/", getPosts);
 router.post("/", createPost);
+router.patch('/:id');
 
 export default router;

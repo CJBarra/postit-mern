@@ -9,7 +9,6 @@ const LiveFeed = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
-  // console.log(posts.length);
   return ( 
     // show circular progress if the length of posts is 0.
     !posts.length ? (<CircularProgress />) : (
