@@ -10,9 +10,13 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../../actions/posts.js";
 
 const Post = ( {post, setCurrentId} ) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  
   // console.log(post);
   return (
     <Card className={classes.card}>
@@ -53,7 +57,7 @@ const Post = ( {post, setCurrentId} ) => {
         <Button color="primary" size="small" onClick={() => {}}>
           <ThumbUpAlt fontSize="small" />Like {post.likeCount}
         </Button>
-        <Button color="primary" size="small" onClick={() => {}}>
+        <Button color="primary" size="small" onClick={() => { dispatch(deletePost(post._id))}}>
           <Delete fontSize="small" />Delete
         </Button>
       </CardActions>

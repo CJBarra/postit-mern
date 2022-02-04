@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/posts";
 
 import Form from "./components/Form/Form.js";
-import painting from "./images/3600_8_05.png";
+import painting from "./images/3800_2_03.png";
 import useStyles from "./styles.js";
 import LiveFeed from "./components/LiveFeed/LiveFeed";
 
@@ -13,37 +13,22 @@ const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
-  /*
-   * Note:
-   * redux-thunk needs custom hook for useDispatch
-   * const useThunkDispatch = () => useDispatch<typeof store.dispatch>();
-   */
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <Container maxidth="lg" className={classes.container}>
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h3" align="center">
-          Heading h3
+          Heading 3
         </Typography>
-        <img
-          src={painting}
-          className={classes.image}
-          alt="painting in color"
-          height="80"
-        />
+        <img src={painting} className={classes.image} alt="painting in color" height="80" />
       </AppBar>
       <Grow in>
         <Container>
-          <Grid
-            container
-            justifyContent="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
+          <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
               <LiveFeed setCurrentId={setCurrentId} />
             </Grid>
