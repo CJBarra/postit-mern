@@ -23,7 +23,7 @@ app.use("/posts", postRoutes);
 // connection string taken from mongodb cluster
 // TODO: protect credentials before deployment in mental variables
 const CONNECTION_URL =
-  "mongodb+srv://admin:hsGHRXup7iW9TF8@cluster0.pq8ad.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "CONNECTION_STRING";
 // setup port, env variable will be set once application pushed to Heroku.
 const PORT = process.env.PORT || 8080;
 
