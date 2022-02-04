@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/posts";
 
 import Form from "./components/Form/Form.js";
-import painting from "./images/3800_2_03.png";
-import useStyles from "./styles.js";
 import LiveFeed from "./components/LiveFeed/LiveFeed";
+import bgImage from "./images/3800_2_03.png";
+import useStyles from "./styles.js";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -24,15 +24,15 @@ const App = () => {
         <Typography className={classes.heading} variant="h3" align="center">
           Heading 3
         </Typography>
-        <img src={painting} className={classes.image} alt="painting in color" height="80" />
+        <img src={bgImage} className={classes.image} alt="background in color" height="80" />
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-            <Grid item xs={12} sm={7}>
+          <Grid className={classes.mainContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
+            <Grid className={classes.liveFeed} item xs={12} sm={6}>
               <LiveFeed setCurrentId={setCurrentId} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid className={classes.formMobile} item xs={12} sm={6} md={5}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>

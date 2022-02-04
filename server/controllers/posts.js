@@ -45,15 +45,15 @@ export const updatePost = async (req, res) => {
 };
 
 // -------- LIKE posts --------//
-export const likePost = async (res, req) =>{
-  const { id } = req.params;
+export const likePost = async (req, res) =>{
+  const {id} = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) { return res.status(404).send("That id does not exist in post.."); }
 
-  const post = await PostMessage.findById(id);
-  const updateLikePost = await PostMessage.findByIdAndUpdate(id, { likeCounter: post.likeCounter + 1 }, {new: true})
+  const post = await PostMessage.findByIdAndUpdate(id);
+  const updatedPostLikeCount = await PostMessage.findByIdAndUpdate(id, { likeCounter: post.likeCounter + 1 }, {new: true})
 
-  res.json(updateLikePost);
+  res.json(updatedPostLikeCount);
 }
 
 // -------- DELETE posts --------//

@@ -14,7 +14,7 @@ const LiveFeed = ({ setCurrentId }) => {
     !posts.length ? (<CircularProgress />) : (
       <Grid className={classes.mainContainer} alignItems="stretch" spacing={2} container>
         {posts.map((post) => (
-          <Grid key={post._id} item xs={12} sm={6} md={6}>
+          <Grid className={classes.postWrapper} key={post._id} item xs={12} sm={6} md={6}>
             <Post post={post} setCurrentId={setCurrentId} />
           </Grid>
         ))}

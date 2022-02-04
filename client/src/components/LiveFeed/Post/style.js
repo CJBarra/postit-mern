@@ -24,7 +24,7 @@ export default makeStyles({
     justifyContent: "space-between",
   },
   title: { padding: "0 16px", textTransform: "capitalize" },
-  message: { padding: "0 16px"},
+  message: { padding: "0"},
   details: {
     display: "flex",
     justifyContent: "space-between",

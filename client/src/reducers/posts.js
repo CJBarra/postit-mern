@@ -11,13 +11,13 @@ export default (state = [], action) => {
       // spread all posts in state, then add new post to array.
       return [...state, action.payload];
 
-    case "UPDATE":
     case "LIKE":
+    case "UPDATE":
       return state.map((post) => post._id === action.payload._id ? action.payload : post);
-          /* Check if post._id matches action.payload._id, if true, map over origin
-          'post' array(state), update the data, then return newly updated action.payload.
-          Otherwise, return original post.
-          */
+      /* Check if post._id matches action.payload._id, if true, map over origin
+      'post' array(state), update the data, then return newly updated action.payload.
+      Otherwise, return original post.
+      */
 
     case "DELETE":
       return state.filter((post) => post._id !== action.payload);

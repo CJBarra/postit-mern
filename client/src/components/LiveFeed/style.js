@@ -14,4 +14,14 @@ export default makeStyles((theme) => ({
   centerText:{
     textAlign: "center",
   },
+
+  // MediaQuery
+  [theme.breakpoints.down('sm')]:{
+    mainContainer:{
+      flexDirection: 'column-reverse',
+    },
+    postWrapper:{
+      maxWidth: "100%",
+    }
+  }
 }));
