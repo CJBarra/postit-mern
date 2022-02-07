@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 /**
  * title
  * message
- * creator
+ * author
  * tags
  * file url [img]
  * like counter [num], set default to 0

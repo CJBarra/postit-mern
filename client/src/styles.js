@@ -30,6 +30,7 @@ export default makeStyles((theme) => ({
     },
     formMobile:{
       maxWidth: "100%",
+      width: "480px",
     }
   },
   

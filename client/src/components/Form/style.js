@@ -18,6 +18,9 @@ export default makeStyles((theme) => ({
     width: "100%",
     margin: "10px 0",
   },
+  formControllers:{
+    margin: "8px 0 !important",
+  },
   buttonSubmit: {
     marginBottom: 10,
   },

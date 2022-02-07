@@ -55,10 +55,10 @@ const Form = ({ currentId, setCurrentId }) => {
     <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? 'Edit' : 'Create A Post'}</Typography>
-        <TextField name="author" variant="outlined" label="author" fullWidth value={postData.author} onChange={(e) => setPostData({ ...postData, author: e.target.value })} />
-        <TextField variant="outlined" label="title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} name="title" />
-        <TextField name="message" variant="outlined" label="message" fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value }) } />
-        <TextField name="tags" variant="outlined" label="tags" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
+        <TextField className={classes.formControllers} name="author" variant="outlined" label="author" fullWidth value={postData.author} onChange={(e) => setPostData({ ...postData, author: e.target.value })} />
+        <TextField className={classes.formControllers} variant="outlined" label="title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} name="title" />
+        <TextField className={classes.formControllers} name="message" variant="outlined" label="message" fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value }) } />
+        <TextField className={classes.formControllers} name="tags" variant="outlined" label="tags" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
 
         <div className={classes.fileInput}>
           <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })  } />

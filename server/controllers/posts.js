@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 
+let ERROR_MSG = "That id does not exist in post..";
+
 // -------- GET latest posts --------//
 export const getPosts = async (req, res) => {
   try {
@@ -17,9 +19,9 @@ export const createPost = async (req, res) => {
   const post = req.body;
   const newPost = new PostMessage(post);
 
+  // check for successful creation
   try {
     await newPost.save();
-    // check for successful creation
     res.status(201).json(newPost);
   } catch (e) {
     res.status(409).json({ message: e.message });
@@ -32,7 +34,7 @@ export const updatePost = async (req, res) => {
   const post = req.body;
 
   // Check if id is valid in mongoose
-  if (!mongoose.Types.ObjectId.isValid(_id)) { return res.status(404).send("That id does not exist in post.."); }
+  if (!mongoose.Types.ObjectId.isValid(_id)) { return res.status(404).send(ERROR_MSG); }
 
   /*
    * If valid, find post by Id and update data model in PostMessage.
@@ -46,9 +48,9 @@ export const updatePost = async (req, res) => {
 
 // -------- LIKE posts --------//
 export const likePost = async (req, res) =>{
-  const {id} = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) { return res.status(404).send("That id does not exist in post.."); }
+  const { id } = req.params;
+  
+  if (!mongoose.Types.ObjectId.isValid(id)) { return res.status(404).send(ERROR_MSG); }
 
   const post = await PostMessage.findByIdAndUpdate(id);
   const updatedPostLikeCount = await PostMessage.findByIdAndUpdate(id, { likeCounter: post.likeCounter + 1 }, {new: true})
@@ -60,7 +62,7 @@ export const likePost = async (req, res) =>{
 export const deletePost = async (req, res) => {
   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) { return res.status(404).send("That id does not exist in post.."); }
+  if (!mongoose.Types.ObjectId.isValid(id)) { return res.status(404).send(ERROR_MSG); }
 
   await PostMessage.findOneAndRemove(id);
   res.json({ message: "Post has been deleted." });
