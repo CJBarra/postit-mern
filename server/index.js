@@ -22,14 +22,6 @@ app.use("/posts", postRoutes);
 // https://www.mongodb.com/cloud/atlas
 
 // connection string taken from mongodb cluster
-<<<<<<< HEAD
-=======
-// TODO: protect credentials before deployment in mental variables
-const CONNECTION_URL =
-  "CONNECTION_STRING";
-// setup port, env variable will be set once application pushed to Heroku.
-const PORT = process.env.PORT || 8080;
->>>>>>> aaa06a1175f738d6c9924f36b66389a1d457c7d7
 
 // Use mongoose to connect to database
 // Parser, Topology values set to true || false to fix depreciation warnings
