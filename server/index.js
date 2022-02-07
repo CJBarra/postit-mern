@@ -18,14 +18,15 @@ app.use(cors());
 //------------------- Routes ------------------- //
 app.use("/posts", postRoutes);
 
+app.get('/', (req, res)=>{
+  res.send('Hello from PostIt API');
+})
 // Setup mongodb database , will be hosted using their cloud/atlas version.
 // https://www.mongodb.com/cloud/atlas
 
-// Parser, Topology values set to true || false to fix depreciation warnings
-// referenced from https://mongoosejs.com/docs/5.x/docs/deprecations.html
 mongoose
   .connect(process.env.CONNECTION_URL, {
-    useNewUrlParser: true,
+    useNewUrlParser: true, // depreciation warning fix(s)
     useUnifiedTopology: true,
   })
   .then(() =>
