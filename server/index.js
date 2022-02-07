@@ -18,11 +18,9 @@ app.use(cors());
 //------------------- Routes ------------------- //
 app.use("/posts", postRoutes);
 
-app.get('/', (req, res)=>{
-  res.send('Hello from PostIt API');
-})
 // Setup mongodb database , will be hosted using their cloud/atlas version.
 // https://www.mongodb.com/cloud/atlas
+const PORT = process.env.PORT || 8080;
 
 mongoose
   .connect(process.env.CONNECTION_URL, {
@@ -30,7 +28,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() =>
-    app.listen(process.env.PORT, () => console.log(`Server running on port: ${process.env.PORT}`))
+    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
   )
   .catch((error) => console.log(error.message));
 
